@@ -19,14 +19,28 @@
         }else if(strtolower($pilihan)=="hapus"){
             echo "Masukkan nomor tugas yang ingin kamu hapus : ";
             $hapusTugas = trim(fgets(STDIN));
-            unset($listTugas[intval($hapusTugas)]);
-        }else if(strtolower($pilihan)=="daftar"){
-            foreach($listTugas as $tugas){
-                echo $tugas."\n";
+            if(isset($listTugas[$hapusTugas - 1])){
+                unset($listTugas[$hapusTugas - 1]);
+                echo "Tugas berhasil dihapus";
+            }else{
+                echo "Nomor tugas tidak terdeteksi";
             }
+        }else if(strtolower($pilihan)=="daftar"){
+            if(sizeof($listTugas)==0){
+                echo "Kamu belum memiliki tugas di list";
+            }else{
+                $i = 1;
+                foreach($listTugas as $key=>$tugas){
+                    echo $i.". ".$tugas."\n";
+                    $i++;
+                }
+            }
+           
         }else if(strtolower($pilihan)== "keluar"){
             echo "Anda keluar dari program";
             return;
+        }else{
+            echo "Perintah tidak dikenal";
         }
 
     }

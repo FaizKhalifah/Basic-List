@@ -19,10 +19,7 @@
         }else if(strtolower($pilihan)=="hapus"){
             echo "Masukkan nomor tugas yang ingin kamu hapus : ";
             $hapusTugas = trim(fgets(STDIN));
-            for($i=$hapusTugas;$i<sizeof($listTugas);$i++){
-                
-            }
-
+            unset($listTugas[intval($hapusTugas)]);
         }else if(strtolower($pilihan)=="daftar"){
             foreach($listTugas as $tugas){
                 echo $tugas."\n";

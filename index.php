@@ -20,7 +20,7 @@
             echo "Masukkan nomor tugas yang ingin kamu hapus : ";
             $hapusTugas = trim(fgets(STDIN));
             for($i=$hapusTugas;$i<sizeof($listTugas);$i++){
-                $listTugas[$i]=$listTugas[$i+1];
+                
             }
 
         }else if(strtolower($pilihan)=="daftar"){
